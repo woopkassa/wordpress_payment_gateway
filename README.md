@@ -1,5 +1,6 @@
 # wordpress_payment_gateway
 Woopkassa payment gateway for Wordpress CMS as a module.
+# Важно провести адаптацию модуля под конкретный магазин мерчанта, проверить оплату инвойса на тестовой среде!
 ## Установка
 1. Переходим в раздел администратора
 2. Устанавливается плагин WooCommerce
