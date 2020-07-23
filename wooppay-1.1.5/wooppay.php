@@ -2,7 +2,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2012-2015 Wooppay
+ * Copyright (c) 2012-2020 Wooppay
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +23,14 @@
  * THE SOFTWARE.
  *
  * @copyright   Copyright (c) 2012-2015 Wooppay
- * @author      Yaroshenko Vladimir <mr.struct@mail.ru>
- * @version     1.1.5
+ * @author      Wooppay ©
+ * @version     2.0.0
  * @wordpress-plugin
  * Plugin Name:       WooCommerce Wooppay Payment Gateways
  * Plugin URI:
  * Description:       Add Wooppay Payment Gateways for WooCommerce.
- * Version:           1.1.5
- * Author:            Yaroshenko Vladimir
+ * Version:           2.0.0
+ * Author:            Wooppay ©
  * License:           The MIT License (MIT)
  *
  */
