@@ -63,7 +63,8 @@ public $debug = 'yes';
 							$orderId = $orderPrefix . '_' . $orderId;
 						}
 						$invoice = $client->createInvoice($orderId, '', '', $order->order_total, $serviceName);
-						if ($client->getOperationData((int)$invoice->response->operationId)->response->records[0]->status == WooppayOperationStatus::OPERATION_STATUS_DONE) {
+						$status = $client->getOperationData((int)$invoice->response->operationId)->response->records[0]->status;
+						if ($status == WooppayOperationStatus::OPERATION_STATUS_DONE || $status == WooppayOperationStatus::OPERATION_STATUS_WAITING) {
 							$order->update_status('completed', __('Payment completed.', 'woocommerce'));
 							die('{"data":1}');
 						}
