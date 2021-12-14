@@ -58,7 +58,7 @@ public $debug = 'yes';
 					if ($client->login($this->get_option('api_username'), $this->get_option('api_password'))) {
 						$orderPrefix = $this->get_option('order_prefix');
 						$serviceName = $this->get_option('service_name');
-						$orderId = $order->id;
+						$orderId = $order->get_id();
 						if ($orderPrefix) {
 							$orderId = $orderPrefix . '_' . $orderId;
 						}
@@ -188,7 +188,7 @@ public $debug = 'yes';
 				$backUrl = $this->get_return_url($order);
 				$orderPrefix = $this->get_option('order_prefix');
 				$serviceName = $this->get_option('service_name');
-				$invoice = $client->createInvoice($orderPrefix . '_' . $order->id, $backUrl, $requestUrl, $order->order_total, $serviceName, 'Оплата заказа №' . $order->id, '', '', $order->billing_email, $order->billing_phone);
+				$invoice = $client->createInvoice($orderPrefix . '_' . $order->get_id(), $backUrl, $requestUrl, $order->order_total, $serviceName, 'Оплата заказа №' . $order->get_id(), '', '', $order->billing_email, $order->billing_phone);
 				$woocommerce->cart->empty_cart();
 				$order->update_status('pending', __('Payment Pending.', 'woocommerce'));
 				//$order->payment_complete($invoice->response->operationId);
