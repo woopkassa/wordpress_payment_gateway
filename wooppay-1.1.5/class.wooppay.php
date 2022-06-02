@@ -59,11 +59,11 @@ public $debug = 'yes';
 						$orderPrefix = $this->get_option('order_prefix');
 						$serviceName = $this->get_option('service_name');
 						$orderId = $order->get_id();
-						if ($orderPrefix) {
-							$orderId = $orderPrefix . '_' . $orderId;
-						}
+                        $orderId = $orderPrefix . '_' . $orderId;
+
 						$invoice = $client->createInvoice($orderId, '', '', $order->order_total, $serviceName);
 						$status = $client->getOperationData((int)$invoice->response->operationId)->response->records[0]->status;
+
 						if ($status == WooppayOperationStatus::OPERATION_STATUS_DONE || $status == WooppayOperationStatus::OPERATION_STATUS_WAITING) {
 							$order->update_status('completed', __('Payment completed.', 'woocommerce'));
 							die('{"data":1}');
@@ -185,7 +185,7 @@ public $debug = 'yes';
 			$client = new WooppaySoapClient($this->get_option('api_url'));
 			if ($client->login($this->get_option('api_username'), $this->get_option('api_password'))) {
 				$requestUrl = WC()->api_request_url('WC_Gateway_Wooppay') . '?id_order=' . $order_id . '&key=' . $order->order_key;
-				$backUrl = $this->get_return_url($order);
+				$backUrl = $requestUrl;
 				$orderPrefix = $this->get_option('order_prefix');
 				$serviceName = $this->get_option('service_name');
 				$invoice = $client->createInvoice($orderPrefix . '_' . $order->get_id(), $backUrl, $requestUrl, $order->order_total, $serviceName, 'Оплата заказа №' . $order->get_id(), '', '', $order->billing_email, $order->billing_phone);
